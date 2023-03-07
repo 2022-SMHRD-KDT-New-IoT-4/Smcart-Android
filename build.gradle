@@ -4,3 +4,8 @@ plugins {
     id 'com.android.library' version '7.4.1' apply false
     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
 }
+
+dependencies {
+    // jsoup 추가 (크롤링)
+    implementation 'org.jsoup:jsoup:1.13.1'
+}
