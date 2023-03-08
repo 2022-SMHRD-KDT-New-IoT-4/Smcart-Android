@@ -21,7 +21,7 @@ class BasketActivity : AppCompatActivity() {
         data.add(BasketVO("대파 1kg /단", "4,200","1",R.drawable.greenonion))
         data.add(BasketVO("대파 1kg /단", "4,200","1",R.drawable.greenonion))
         data.add(BasketVO("긴 상품명 어쩌고 저쩌고 두 줄일 때 더 길게 더 길게 짱길게1kg /단", "4,200","1",R.drawable.greenonion))
-        //
+        // 윤한아 땡겨줘
 
         val adapter = BasketAdapter(applicationContext,data)
         rcBasketList.adapter = adapter
