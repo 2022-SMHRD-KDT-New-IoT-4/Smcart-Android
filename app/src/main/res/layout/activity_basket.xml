@@ -118,13 +118,4 @@
         app:layout_constraintTop_toTopOf="@+id/textView"
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/imgradius"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="263dp"
-        tools:srcCompat="@drawable/greenonion" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
