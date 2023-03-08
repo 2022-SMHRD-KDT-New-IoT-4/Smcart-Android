@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
 RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
-
+    
+    //테스트
     inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
         val tvProdName : TextView
         val tvProdPrice : TextView
