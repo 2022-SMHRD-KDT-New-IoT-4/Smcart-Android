@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/b"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
@@ -21,11 +22,11 @@
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="@drawable/backcard_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/backcard_gray" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView12"
@@ -40,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnGoShop"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_marginTop="40dp"
@@ -64,15 +65,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnPayDetail"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:background="@drawable/button_black"
             android:text="상세내역 보기"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="@+id/button2"
+            app:layout_constraintBottom_toBottomOf="@+id/btnGoShop"
             app:layout_constraintEnd_toEndOf="@+id/textView22"
-            app:layout_constraintTop_toTopOf="@+id/button2" />
+            app:layout_constraintTop_toTopOf="@+id/btnGoShop" />
 
         <TextView
             android:id="@+id/textView15"
