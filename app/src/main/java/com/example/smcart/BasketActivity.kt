@@ -22,9 +22,9 @@ class BasketActivity : AppCompatActivity() {
         val data = ArrayList<BasketVO>()
         data.add(BasketVO("세척당근 3개입/봉", "3,600","2",R.drawable.carrot))
         data.add(BasketVO("대파 1kg /단", "4,200","1",R.drawable.greenonion))
-        data.add(BasketVO("목우촌 국내산 돼지 앞다리 1000g/팩", "10,900","1",R.drawable.greenonion))
-        data.add(BasketVO("뿌셔뿌셔 불고기맛 120g/봉", "900","4",R.drawable.greenonion))
-        data.add(BasketVO("긴 상품명 어쩌고 저쩌고 두 줄일 때 더 길게 더 길게 짱길게1kg /단", "4,200","1",R.drawable.greenonion))
+        data.add(BasketVO("목우촌 국내산 돼지 앞다리 1000g/팩", "10,900","1",R.drawable.pork))
+        data.add(BasketVO("미니뿌셔 불고기맛 55g 5개입/봉", "3,800","4",R.drawable.snack))
+        data.add(BasketVO("긴 상품명 어쩌고 저쩌고 두 줄일 때 더 길게 더 길게 짱길게1kg /단", "980","1",R.drawable.greenonion))
         // please
         val adapter = BasketAdapter(applicationContext,data)
         rcBasketList.adapter = adapter
