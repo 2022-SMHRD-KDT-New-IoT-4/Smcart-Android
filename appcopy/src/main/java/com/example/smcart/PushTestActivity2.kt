@@ -10,9 +10,5 @@ class PushTestActivity2 : AppCompatActivity() {
 
 
 
-
-
-        //ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-        ////////////////////////////// pull test
     }
 }

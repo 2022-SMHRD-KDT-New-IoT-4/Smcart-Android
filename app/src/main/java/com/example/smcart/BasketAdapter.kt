@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -22,6 +23,8 @@ RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
         val imgMinus :ImageView
         val btnHeart : ImageButton
         val btnTrashcan : ImageButton
+        val btnProdCheck : CheckBox
+
 
 
         init {
@@ -33,7 +36,10 @@ RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
             imgMinus = view.findViewById(R.id.imgMinus)
             btnHeart = view.findViewById(R.id.btnHeart)
             btnTrashcan = view.findViewById(R.id.btnTrashcan)
+            btnProdCheck = view.findViewById(R.id.btnProdCheck)
+
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasketAdapter.ViewHolder {
@@ -46,11 +52,12 @@ RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
         holder.tvProdName.text = data[position].name
         holder.tvProdPrice.text = data[position].price
         holder.tvProdCnt.text = data[position].cnt
-        holder.imgProd.setImageResource(R.drawable.carrot)
+        holder.imgProd.setImageResource(data[position].img)
         holder.imgPlus.setImageResource(R.drawable.icon_plus)
         holder.imgMinus.setImageResource(R.drawable.icon_minus)
         holder.btnHeart.setImageResource(R.drawable.heart_gray)
         holder.btnTrashcan.setImageResource(R.drawable.trash_gray)
+
     }
 
     override fun getItemCount(): Int {
