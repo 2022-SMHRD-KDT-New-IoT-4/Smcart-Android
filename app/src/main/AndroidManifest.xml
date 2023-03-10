@@ -15,8 +15,17 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".PayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PayDetailActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".PayDoneActivity"
-            android:exported="true" >
+            android:exported="true" />
+        <activity
+            android:name=".BasketActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,22 +33,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BasketActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".PushTestActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".PushTestActivity"
-            android:exported="false" />
-        <activity
             android:name=".SplashActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
