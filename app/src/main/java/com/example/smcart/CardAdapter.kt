@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
  * RecyclerView Adapter 를 상속 받는다
  * 제네릭 타입으론 UI에 보여줄 View 를 담는 ViewHolder 이다.
  */
-class CardAdepter(private val context: Context, private val imageList: MutableList<Int> ): RecyclerView.Adapter<CardAdepter.PagerViewHolder>() {
+class CardAdapter(private val context: Context, private val imageList: MutableList<Int> ): RecyclerView.Adapter<CardAdapter.PagerViewHolder>() {
 
     /**
      * View 를 담을 ViewHolder class 를 정의 한다.
