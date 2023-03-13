@@ -101,7 +101,7 @@ class QRActivity : AppCompatActivity() {
 
         queue = Volley.newRequestQueue(applicationContext)
 
-        val url = "http://192.168.35.93:8081/cart/Main.do"
+        val url = "http://211.223.106.67:8081/cart/Main.do"
 
         val stringRequest: StringRequest = object : StringRequest(
             Request.Method.POST, url,
