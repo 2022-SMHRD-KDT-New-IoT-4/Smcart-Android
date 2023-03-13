@@ -22,7 +22,7 @@ import com.google.zxing.integration.android.IntentResult
     // request 객체를 서버로 요청보내는 역할
     lateinit var queue: RequestQueue
     // 요청과 응답에 대한 로직(기능)을 담고있는 객체
-    lateinit var request:StringRequest
+    lateinit var request: StringRequest
     lateinit var result : IntentResult
     lateinit var webView: WebView
 class QRActivity : AppCompatActivity() {
