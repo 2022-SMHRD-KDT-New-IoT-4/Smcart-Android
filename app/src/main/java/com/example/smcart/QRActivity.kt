@@ -1,14 +1,13 @@
 package com.example.smcart
 
-import android.R.attr.tag
-import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.content.Intent
 import android.os.Handler
 import android.util.Log
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.*
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -18,13 +17,13 @@ import com.google.zxing.integration.android.IntentResult
 
 // import kotlinx.android.synthetic.main.activity_qractivity.*
 
-    // lateinit 초기화 지연
-    // request 객체를 서버로 요청보내는 역할
-    lateinit var queue: RequestQueue
-    // 요청과 응답에 대한 로직(기능)을 담고있는 객체
-    lateinit var request: StringRequest
-    lateinit var result : IntentResult
-    lateinit var webView: WebView
+// lateinit 초기화 지연
+// request 객체를 서버로 요청보내는 역할
+lateinit var queue: RequestQueue
+// 요청과 응답에 대한 로직(기능)을 담고있는 객체
+lateinit var request: StringRequest
+lateinit var result : IntentResult
+lateinit var webView: WebView
 class QRActivity : AppCompatActivity() {
     // private  lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,7 +100,7 @@ class QRActivity : AppCompatActivity() {
 
         queue = Volley.newRequestQueue(applicationContext)
 
-        val url = "http://192.168.35.93:8081/cart/Main.do"
+        val url = "http://211.223.106.67:8081/cart/Main.do"
 
         val stringRequest: StringRequest = object : StringRequest(
             Request.Method.POST, url,
