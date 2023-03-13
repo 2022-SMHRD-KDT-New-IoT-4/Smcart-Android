@@ -52,7 +52,7 @@ class PayActivity : AppCompatActivity() {
             clipToPadding= false
             clipChildren= false
             offscreenPageLimit = 1
-            adapter = CardAdepter(this@PayActivity, imageList)
+            adapter = CardAdapter(this@PayActivity, imageList)
         }
         vpcard.setPageTransformer(MarginPageTransformer(100))
         vpcard.setPadding(200,0,200,0)
