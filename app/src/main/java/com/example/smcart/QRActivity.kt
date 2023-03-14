@@ -103,6 +103,7 @@ class QRActivity : AppCompatActivity() {
 
         val url = "http://211.223.106.67:8081/cart/Main.do"
 
+
         val stringRequest: StringRequest = object : StringRequest(
             Request.Method.POST, url,
             Response.Listener { response: String ->
