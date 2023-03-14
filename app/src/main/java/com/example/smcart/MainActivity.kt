@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
 
         btnStartShopping.setOnClickListener {
+
             val intent = Intent(this@MainActivity,QRActivity::class.java)
             startActivity(intent)
         }
