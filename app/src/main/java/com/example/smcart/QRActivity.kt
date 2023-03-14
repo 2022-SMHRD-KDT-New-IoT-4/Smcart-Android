@@ -101,7 +101,7 @@ class QRActivity : AppCompatActivity() {
 
         queue = Volley.newRequestQueue(applicationContext)
 
-        val url = "http://192.168.58.93:8081/cart/Main.do"
+        val url = "http://211.223.106.67:8081/cart/Qr.do"
 
 
         val stringRequest: StringRequest = object : StringRequest(
@@ -109,24 +109,26 @@ class QRActivity : AppCompatActivity() {
             Response.Listener { response: String ->
 
 //                var row = response.toInt() // row는 서버에서 받아온 조회 결과값.
-                var row : String?
-                row = response // row는 서버에서 받아온 조회 결과값.
-                if (row != null){
+                var result : String?
+                result = response // row는 서버에서 받아온 조회 결과값.
+                if (result != null){
                     Log.d("서버에서 받아온 값!",response)
+                    // 서버로 넘긴 module_qr정보를 db에서 조회 후,
+                    // 받아온 row값이 1일 경우 모듈 연동 성공 + 장바구니 화면으로 넘기기
+                    val row = result.toInt()
+                    if(row>0){
+                        Toast.makeText(this, "즐거운 쇼핑 되세요.",Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@QRActivity, BasketActivity::class.java)
+                        startActivity(intent)
+                    }else{
+                        Toast.makeText(this,"다시 시도해 주세요.",Toast.LENGTH_SHORT).show()
+                    }
+//                 0일 경우 연동 실패 토스트 띄우기
 
                 }else{
                     Log.d("꽝!",response)
                 }
-                // 서버로 넘긴 module_qr정보를 db에서 조회 후,
-                // 받아온 row값이 1일 경우 모듈 연동 성공 + 장바구니 화면으로 넘기기
-//                if(row>0){
-//                    Toast.makeText(this, "즐거운 쇼핑 되세요.",Toast.LENGTH_SHORT).show()
-//                    val intent = Intent(this@QRActivity, BasketActivity::class.java)
-//                    startActivity(intent)
-//                }else{
-//                    Toast.makeText(this,"다시 시도해 주세요.",Toast.LENGTH_SHORT).show()
-//                }
-                // 0일 경우 연동 실패 토스트 띄우기
+
 
 
 //                Log.d(
@@ -135,10 +137,10 @@ class QRActivity : AppCompatActivity() {
 //                )
             },
             Response.ErrorListener { error: VolleyError ->
-//                Log.d(
-//                    "안녕",
-//                    "That didn't work!" + error.message
-//                )
+                Log.d(
+                    "안녕",
+                    "That didn't work!" + error.message
+                )
             }) {
 
             @Throws(AuthFailureError::class)
