@@ -7,7 +7,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
-
+<!--    애플리케이션에 세로 모드 또는 가로 모드 방향이 필요하다고 명시적으로 선언-->
+    <uses-feature android:name="android.hardware.screen.portrait"/>
 
     <application
         android:allowBackup="true"
@@ -24,11 +25,24 @@
             android:exported="true" >
         </activity>
 
+
+<!--        세로모드는 이걸루 -->
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
+
         <activity
             android:name=".QRActivity"
             android:exported="true"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
             tools:replace="screenOrientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
@@ -52,16 +66,14 @@
         <activity
             android:name=".BasketActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
             android:name=".SplashActivity"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".JoinActivity">
 
     <ImageButton
@@ -76,6 +77,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
+        android:backgroundTint="#989898"
         android:ems="10"
         android:hint="이메일을 작성해주세요"
         android:inputType="textPersonName"
@@ -103,6 +105,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:backgroundTint="#989898"
         android:ems="10"
         android:hint="비밀번호를 입력해주세요."
         android:inputType="textPersonName"
@@ -127,6 +130,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:backgroundTint="#989898"
         android:ems="10"
         android:hint="닉네임을 작성해 주세요."
         android:inputType="textPersonName"
@@ -152,6 +156,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:backgroundTint="#989898"
         android:ems="10"
         android:hint="전화번호를 입력해주세요."
         android:inputType="textPersonName"
@@ -176,6 +181,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:backgroundTint="#989898"
         android:ems="10"
         android:hint="이름을 입력해주세요."
         android:inputType="textPersonName"

@@ -42,7 +42,7 @@ class PayDetailAdapter (var context : Context, var data : ArrayList<BasketVO>):
         holder.tvProdNamePD.text = data[position].name
         holder.tvProdPricePD.text = data[position].price
         holder.tvProdCntPD.text = data[position].cnt
-        holder.imgProdPD.setImageResource(R.drawable.carrot)
+        holder.imgProdPD.setImageResource(data[position].img)
 
     }
 
