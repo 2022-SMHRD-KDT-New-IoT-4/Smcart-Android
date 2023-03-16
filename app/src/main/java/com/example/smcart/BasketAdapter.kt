@@ -11,8 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
-RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
-    
+    RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
     //테스트
     inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
         val tvProdName : TextView
@@ -27,9 +26,9 @@ RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
 
 
 
+
         init {
             tvProdName = view.findViewById(R.id.tvProdName)
-            tvProdPrice = view.findViewById(R.id.tvProdPrice)
             tvProdCnt = view.findViewById(R.id.tvProdCnt)
             imgProd = view.findViewById(R.id.imgProd)
             imgPlus = view.findViewById(R.id.imgPlus)
@@ -37,7 +36,34 @@ RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
             btnHeart = view.findViewById(R.id.btnHeart)
             btnTrashcan = view.findViewById(R.id.btnTrashcan)
             btnProdCheck = view.findViewById(R.id.btnProdCheck)
+            tvProdPrice = view.findViewById(R.id.tvProdPrice)
 
+
+            imgPlus.setOnClickListener {
+                var cnt = tvProdCnt.text.toString().toInt()  // 원래 개수
+                val price = tvProdPrice.text.toString().toInt() / cnt // 원가
+                cnt +=1 // 추가된 개수
+                tvProdCnt.text = cnt.toString() // + 1 개 된 개수 출력
+                tvProdPrice.text = (price * cnt).toString()
+
+            }
+            imgMinus.setOnClickListener {
+                if(tvProdCnt.text.toString().toInt() != 1) {
+                    var cnt = tvProdCnt.text.toString().toInt()  // 원래 개수
+                    val price = tvProdPrice.text.toString().toInt() / cnt // 원가
+                    cnt -=1 // 추가된 개수
+                    tvProdCnt.text = cnt.toString() // + 1 개 된 개수 출력
+                    tvProdPrice.text = (price * cnt).toString()
+
+                }
+            }
+            btnTrashcan.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    data.removeAt(position)
+                    notifyItemRemoved(position)
+                }
+            }
         }
 
     }
@@ -50,13 +76,15 @@ RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: BasketAdapter.ViewHolder, position: Int) {
         holder.tvProdName.text = data[position].name
-        holder.tvProdPrice.text = data[position].price
         holder.tvProdCnt.text = data[position].cnt
+        val price =  data[position].price.replace(",", "").toInt() * data[position].cnt.toInt()
+        holder.tvProdPrice.text = price.toString()
         holder.imgProd.setImageResource(data[position].img)
         holder.imgPlus.setImageResource(R.drawable.icon_plus)
         holder.imgMinus.setImageResource(R.drawable.icon_minus)
         holder.btnHeart.setImageResource(R.drawable.heart_gray)
         holder.btnTrashcan.setImageResource(R.drawable.trash_gray)
+
 
     }
 
