@@ -2,13 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-<!--    애플리케이션에 세로 모드 또는 가로 모드 방향이 필요하다고 명시적으로 선언-->
-    <uses-feature android:name="android.hardware.screen.portrait"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" /> <!-- 애플리케이션에 세로 모드 또는 가로 모드 방향이 필요하다고 명시적으로 선언 -->
+    <uses-feature android:name="android.hardware.screen.portrait" />
 
     <application
         android:allowBackup="true"
@@ -21,35 +23,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".PayHistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyPageActivity"
-            android:exported="true" >
-        </activity>
-
-
-<!--        세로모드는 이걸루 -->
+            android:exported="true" /> <!-- 세로모드는 이걸루 -->
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
-
         <activity
             android:name=".QRActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"
-            tools:replace="screenOrientation">
-
-
-        </activity>
-
+            tools:replace="screenOrientation" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".JoinActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".PayActivity"
             android:exported="false" />
@@ -68,18 +62,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true" />
     </application>
 
 </manifest>
