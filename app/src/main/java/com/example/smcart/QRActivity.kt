@@ -57,11 +57,11 @@ class QRActivity : AppCompatActivity() {
 
     fun qrStart(){
         val integrator = IntentIntegrator(this)
- //       integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE) // 여러가지 바코드중에 특정 바코드 설정 가능
+        //       integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE) // 여러가지 바코드중에 특정 바코드 설정 가능
         integrator.setPrompt("모듈의 QR 코드를 스캔해 주세요") // 스캔할 때 하단의 문구
- //       integrator.setCameraId(0) // 0은 후면 카메라, 1은 전면 카메라
+        //       integrator.setCameraId(0) // 0은 후면 카메라, 1은 전면 카메라
         integrator.setBeepEnabled(true) // 바코드를 인식했을 때 삑 소리유무
- //       integrator.setBarcodeImageEnabled(true) // 스캔 했을 때 스캔한 이미지 사용여부
+        //       integrator.setBarcodeImageEnabled(true) // 스캔 했을 때 스캔한 이미지 사용여부
         integrator.setOrientationLocked(true)
         integrator.initiateScan() // 스캔 시작
     }
@@ -104,7 +104,6 @@ class QRActivity : AppCompatActivity() {
         val url = "http://211.223.106.67:8081/cart/Qr.do"
 
 
-
         val stringRequest: StringRequest = object : StringRequest(
             Request.Method.POST, url,
             Response.Listener { response: String ->
@@ -119,6 +118,7 @@ class QRActivity : AppCompatActivity() {
                     val row = result.toInt()
                     if(row>0){
                         Toast.makeText(this, "즐거운 쇼핑 되세요.",Toast.LENGTH_SHORT).show()
+
                         val intent = Intent(this@QRActivity, BasketActivity::class.java)
                         startActivity(intent)
                     }else{
