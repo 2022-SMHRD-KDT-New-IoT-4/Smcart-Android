@@ -71,7 +71,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/cash1"
+                        android:id="@+id/textView36"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -108,13 +108,13 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/cash2"
+                        android:id="@+id/textView40"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="right"
-                        android:paddingRight="3dp"
+                        android:layout_weight="1"
                         android:text="1,000,000"
+                        android:paddingRight="3dp"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -170,7 +170,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/cash3"
+                        android:id="@+id/textView46"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="3dp"
