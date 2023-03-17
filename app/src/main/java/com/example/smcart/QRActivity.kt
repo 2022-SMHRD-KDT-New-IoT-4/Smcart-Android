@@ -118,6 +118,7 @@ class QRActivity : AppCompatActivity() {
                     val row = result.toInt()
                     if(row>0){
                         Toast.makeText(this, "즐거운 쇼핑 되세요.",Toast.LENGTH_SHORT).show()
+
                         val intent = Intent(this@QRActivity, BasketActivity::class.java)
                         startActivity(intent)
                     }else{
