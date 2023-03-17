@@ -63,7 +63,7 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
                 var cntp = requestSend(cnt.toString()).toString()
                 Log.d("되니?",cntp)
 
-
+    ///ㄴㅇㄹㅇㄴㅁㄹ
                 //tvProdCnt.text = cnt.toString() // + 1 개 된 개수 출력
                 //tvProdPrice.text = (price * cnt).toString()
 
