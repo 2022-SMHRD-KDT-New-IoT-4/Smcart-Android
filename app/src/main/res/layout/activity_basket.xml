@@ -71,7 +71,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/textView36"
+                        android:id="@+id/cash1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -108,13 +108,13 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/textView40"
+                        android:id="@+id/cash2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
                         android:layout_weight="1"
-                        android:text="1,000,000"
+                        android:gravity="right"
                         android:paddingRight="3dp"
+                        android:text="1,000,000"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -170,7 +170,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/textView46"
+                        android:id="@+id/cash3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="3dp"
@@ -358,7 +358,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:background="#00FFFFFF"
-        android:tint="#7E7E7E"
+        app:tint="#7E7E7E"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView"
@@ -379,7 +379,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:background="#00FFFFFF"
-        android:tint="#7E7E7E"
+        app:tint="#7E7E7E"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView"
