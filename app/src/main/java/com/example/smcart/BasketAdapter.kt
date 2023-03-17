@@ -50,7 +50,7 @@ RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: BasketAdapter.ViewHolder, position: Int) {
         holder.tvProdName.text = data[position].name
-        holder.tvProdPrice.text = data[position].price
+        holder.tvProdPrice.text = data[position].price.toString()
         holder.tvProdCnt.text = data[position].cnt
         holder.imgProd.setImageResource(data[position].img)
         holder.imgPlus.setImageResource(R.drawable.icon_plus)
