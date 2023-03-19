@@ -42,7 +42,7 @@ class JoinActivity : AppCompatActivity() {
 
 
         // JoinVO로 묶음 - (서버로 보낼 값)
-        val input_data = JoinVO(id.toString(),pw.toString(),nickName.toString(),phone.toString(),name.toString())
+//        val input_data = JoinVO(id.toString(),pw.toString(),nickName.toString(),phone.toString(),name.toString())
 
         // 회원가입 버튼눌렀을 때 전송
         btnJoin.setOnClickListener {
