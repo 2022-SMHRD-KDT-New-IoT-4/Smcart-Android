@@ -53,7 +53,7 @@ class BasketActivity : AppCompatActivity() {
                     var price = jsonArray.getJSONObject(i).getString("prod_price")
                     var cnt = "1"
                     var img = jsonArray.getJSONObject(i).getString("prod_img")
-                    data.add(BasketVO(name, price,cnt , img.toInt())).toString()
+                    //data.add(BasketVO(name, price,cnt , img.toInt())).toString()
                     Log.d("data",data[i].toString())
                 }
 
