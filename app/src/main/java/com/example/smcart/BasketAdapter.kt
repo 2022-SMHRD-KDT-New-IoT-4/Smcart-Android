@@ -126,7 +126,7 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
 
     override fun onBindViewHolder(holder: BasketAdapter.ViewHolder, position: Int) {
         holder.tvProdName.text = data[position].name
-        holder.tvProdCnt.text = data[position].cnt
+        holder.tvProdCnt.text = data[position].cnt.toString()
         val price =  data[position].price
         //.replace(",", "").toInt() * data[position].cnt.toInt()
 
