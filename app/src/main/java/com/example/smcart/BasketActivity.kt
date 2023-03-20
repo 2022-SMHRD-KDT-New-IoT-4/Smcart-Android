@@ -61,10 +61,10 @@ class BasketActivity : AppCompatActivity() {
                 val jsonArray = JSONArray(response)
                 for(i in 0..jsonArray.length()) {
                     var name = jsonArray.getJSONObject(i).getString("prod_name")
-                    var price = jsonArray.getJSONObject(i).getString("prod_price")
+                    var price = jsonArray.getJSONObject(i).getInt("prod_price")
                     var cnt = "1"
                     var img = jsonArray.getJSONObject(i).getString("prod_img")
-                    data.add(BasketVO(name, price.toInt(),cnt.toInt() , img.toInt())).toString()
+                    data.add(BasketVO(name, price,cnt.toInt() , img)).toString()
                     Log.d("data",data[i].toString())
                 }
 
