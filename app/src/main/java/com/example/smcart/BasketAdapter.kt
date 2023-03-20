@@ -55,7 +55,6 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
             btnProdCheck = view.findViewById(R.id.btnProdCheck)
             tvProdPrice = view.findViewById(R.id.tvProdPrice)
 
-
             imgPlus.setOnClickListener {
                 var cnt = tvProdCnt.text.toString().toInt()  // 원래 개수
                 val price = tvProdPrice.text.toString().toInt() / cnt // 원가
@@ -63,7 +62,6 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
                 var cntp = requestSend(cnt.toString()).toString()
                 Log.d("되니?",cntp)
 
-    ///ㄴㅇㄹㅇㄴㅁㄹ
                 //tvProdCnt.text = cnt.toString() // + 1 개 된 개수 출력
                 //tvProdPrice.text = (price * cnt).toString()
 
@@ -131,6 +129,7 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
         holder.tvProdCnt.text = data[position].cnt
         val price =  data[position].price
         //.replace(",", "").toInt() * data[position].cnt.toInt()
+
         holder.tvProdPrice.text = price.toString()
         // 왜 안될까요? holder.imgProd.setImageResource(data[position].img.toString())
         holder.imgPlus.setImageResource(R.drawable.icon_plus)

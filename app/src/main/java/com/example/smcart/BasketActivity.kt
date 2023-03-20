@@ -3,7 +3,9 @@ package com.example.smcart
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telecom.Call
 import android.util.Log
+import android.view.View
 import android.widget.CompoundButton
 import android.widget.Switch
 import android.widget.TextView
@@ -24,15 +26,24 @@ class BasketActivity : AppCompatActivity() {
     private lateinit var queue: RequestQueue
     private lateinit var request : StringRequest
     private lateinit var barcodenum : String
+    private lateinit var rcBasketList : RecyclerView
 
+    private val rvInterfaceInstance: CallbackInterface = object :CallbackInterface{
+        override fun onClick(view: View) {
+            val index : Int = rcBasketList.getChildAdapterPosition(view)
+            Log.d("ind", index.toString())
 
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_basket)
 
         barcodenum = "8801062883646"
 
-        val rcBasketList = findViewById<RecyclerView>(R.id.rcBasketList)
+        rcBasketList = findViewById<RecyclerView>(R.id.rcBasketList)
+
+
         val btnSwitch = findViewById<Switch>(R.id.btnSwitch)
         val tvPay = findViewById<TextView>(R.id.tvPay)
 
