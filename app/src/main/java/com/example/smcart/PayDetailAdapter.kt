@@ -40,8 +40,8 @@ class PayDetailAdapter (var context : Context, var data : ArrayList<BasketVO>):
 
     override fun onBindViewHolder(holder: PayDetailAdapter.ViewHolder, position: Int) {
         holder.tvProdNamePD.text = data[position].name
-        holder.tvProdPricePD.text = data[position].price
-        holder.tvProdCntPD.text = data[position].cnt
+        holder.tvProdPricePD.text = data[position].price.toString()
+        holder.tvProdCntPD.text = data[position].cnt.toString()
         holder.imgProdPD.setImageResource(data[position].img)
 
     }
