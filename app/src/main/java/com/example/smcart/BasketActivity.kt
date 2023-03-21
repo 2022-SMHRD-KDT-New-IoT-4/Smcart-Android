@@ -28,17 +28,11 @@ class BasketActivity : AppCompatActivity() {
     private lateinit var barcodenum : String
     private lateinit var rcBasketList : RecyclerView
 
-    private val rvInterfaceInstance: CallbackInterface = object :CallbackInterface{
-        override fun onClick(view: View) {
-            val index : Int = rcBasketList.getChildAdapterPosition(view)
-            Log.d("ind", index.toString())
-
-        }
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_basket)
 
+        // 0. 서버에서 바코드 값 넘겨받기
         barcodenum = "8801062883646"
 
         rcBasketList = findViewById<RecyclerView>(R.id.rcBasketList)
