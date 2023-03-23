@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etJoinId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -98,10 +98,10 @@
         android:text="비밀번호"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/etJoinId" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etJoinPw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -111,8 +111,8 @@
         android:inputType="textPersonName"
         android:textColor="#000000"
         android:textColorHint="#979797"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/etJoinId"
+        app:layout_constraintStart_toStartOf="@+id/etJoinId"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
     <TextView
@@ -123,10 +123,10 @@
         android:text="닉네임"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/etJoinPw" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/etJoinNickname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -136,9 +136,9 @@
         android:inputType="textPersonName"
         android:textColor="#000000"
         android:textColorHint="#979797"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toEndOf="@+id/etJoinPw"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
+        app:layout_constraintStart_toStartOf="@+id/etJoinPw"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
@@ -149,10 +149,10 @@
         android:text="전화번호"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/etJoinNickname" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/etJoinPhone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -161,9 +161,9 @@
         android:hint="전화번호를 입력해주세요."
         android:inputType="textPersonName"
         android:textColorHint="#979797"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
+        app:layout_constraintEnd_toEndOf="@+id/etJoinNickname"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
+        app:layout_constraintStart_toStartOf="@+id/etJoinNickname"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <TextView
@@ -174,10 +174,10 @@
         android:text="이름"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/textView26"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/etJoinPhone" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/etJoinName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -186,22 +186,22 @@
         android:hint="이름을 입력해주세요."
         android:inputType="textPersonName"
         android:textColorHint="#979797"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
+        app:layout_constraintEnd_toEndOf="@+id/etJoinPhone"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
+        app:layout_constraintStart_toStartOf="@+id/etJoinPhone"
         app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnJoin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:backgroundTint="#FED300"
         android:text="회원가입"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+        app:layout_constraintEnd_toEndOf="@+id/etJoinName"
+        app:layout_constraintStart_toStartOf="@+id/etJoinName"
+        app:layout_constraintTop_toBottomOf="@+id/etJoinName" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
