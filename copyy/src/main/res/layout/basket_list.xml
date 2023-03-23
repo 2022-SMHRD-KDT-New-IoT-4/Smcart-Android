@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:paddingStart="0dp">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgProd"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/carrot" />
+
+        <CheckBox
+            android:id="@+id/btnProdCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:buttonTint="#FFFFFF"
+            android:buttonTintMode="src_in" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#BDBDBD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvProdName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="left"
+        android:text="prodNameprodNameprodNameprodNameprodNameprodName"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnHeart"
+        app:layout_constraintHorizontal_bias="0.793"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/tvProdPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="가격"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvProdName"
+        app:layout_constraintTop_toBottomOf="@+id/tvProdName" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="원"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvProdPrice"
+        app:layout_constraintStart_toEndOf="@+id/tvProdPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvProdPrice" />
+
+    <ImageButton
+        android:id="@+id/btnHeart"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="15dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTrashcan"
+        app:layout_constraintEnd_toStartOf="@+id/btnTrashcan"
+        app:layout_constraintTop_toTopOf="@+id/tvProdName"
+        app:srcCompat="@drawable/heart_gray" />
+
+    <ImageButton
+        android:id="@+id/btnTrashcan"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvProdName"
+        app:srcCompat="@drawable/trash_gray" />
+
+    <TextView
+        android:id="@+id/tvProdCnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수량"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/imgPlus"
+        app:layout_constraintStart_toEndOf="@+id/imgMinus"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/imgPlus"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:srcCompat="@drawable/icon_plus" />
+
+    <ImageView
+        android:id="@+id/imgMinus"
+        android:layout_width="12dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgPlus"
+        app:layout_constraintEnd_toStartOf="@+id/imgPlus"
+        app:layout_constraintTop_toTopOf="@+id/imgPlus"
+        app:srcCompat="@drawable/icon_minus" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
