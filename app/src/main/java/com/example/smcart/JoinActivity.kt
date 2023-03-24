@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -37,16 +38,22 @@ class JoinActivity : AppCompatActivity() {
         etJoinNickName = findViewById(R.id.etJoinNickName)
         etJoinPhone = findViewById(R.id.etJoinPhone)
         etJoinName = findViewById(R.id.etJoinName)
+        // 사용자 입력값
+        val id = etJoinId.text
+        val pw = etJoinPw.text
+        val nickName = etJoinNickName.text
+        val phone = etJoinPhone.text
+        val name = etJoinName.text
 
 
 
 
         // JoinVO로 묶음 - (서버로 보낼 값)
-//        val input_data = JoinVO(id.toString(),pw.toString(),nickName.toString(),phone.toString(),name.toString())
+        val input_data = JoinVO(id.toString(),pw.toString(),nickName.toString(),phone.toString(),name.toString())
 
         // 회원가입 버튼눌렀을 때 전송
         btnJoin.setOnClickListener {
-            join()
+            join(input_data)
         }
 
 
@@ -56,15 +63,8 @@ class JoinActivity : AppCompatActivity() {
 
     //회원가입
     fun join(data : JoinVO){
-        // 사용자가 입력한 값들
-        val id = etJoinId.text
-        val pw = etJoinPw.text
-        val nickName = etJoinNickName.text
-        val phone = etJoinPhone.text
-        val name = etJoinName.text
 
         val url = "http://211.223.106.67:8081/cart/Join.do"
-        // 웹 회원가입 페이지 그대로 사용해도 되는지 테스트해보자
 
         // 이 stringRequest를... (요청 정보 정의)
         val stringRequest = object : StringRequest(
@@ -90,8 +90,6 @@ class JoinActivity : AppCompatActivity() {
                 return  params
                 // 전달할 데이터 담아서 반환하면 서버에 요청할 때 알아서 함께 전송해 줌
             }
-
-
         }
         val queue = Volley.newRequestQueue(this)
         queue.add(stringRequest)
@@ -119,7 +117,7 @@ class JoinActivity : AppCompatActivity() {
                     if(row>0){
                         Toast.makeText(this, "즐거운 쇼핑 되세요.", Toast.LENGTH_SHORT).show()
 
-                        val intent = Intent(this@QRActivity, BasketActivity::class.java)
+                        val intent = Intent(this, BasketActivity::class.java)
                         startActivity(intent)
                     }else{
                         Toast.makeText(this,"다시 시도해 주세요.", Toast.LENGTH_SHORT).show()
