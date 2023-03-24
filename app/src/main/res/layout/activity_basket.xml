@@ -77,7 +77,7 @@
                         android:layout_weight="1"
                         android:gravity="right"
                         android:paddingRight="3dp"
-                        android:text="1,000,000"
+                        android:text="0"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -114,7 +114,7 @@
                         android:layout_weight="1"
                         android:gravity="right"
                         android:paddingRight="3dp"
-                        android:text="1,000,000"
+                        android:text="0"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -174,9 +174,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="3dp"
-                        android:gravity="right"
-                        android:text="1,000,000"
                         android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="0"
                         android:textColor="#F44336"
                         android:textSize="16sp"
                         android:textStyle="bold" />
