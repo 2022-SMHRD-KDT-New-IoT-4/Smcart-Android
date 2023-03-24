@@ -33,17 +33,6 @@ class PayActivity : AppCompatActivity() {
         textview11 = findViewById(R.id.textView11)
         vpcard = findViewById(R.id.vpcard)
 
-        val imageButton3 = findViewById<ImageView>(R.id.imageButton3)
-        val imageButton4 = findViewById<ImageView>(R.id.imageButton4)
-        imageButton3.setOnClickListener {
-            val intent = Intent(this@PayActivity, BasketActivity::class.java)
-            startActivity(intent)
-        }
-        imageButton4.setOnClickListener {
-            val intent = Intent(this@PayActivity, MainActivity::class.java)
-            startActivity(intent)
-        }
-
 
 
         val imgBarcode = findViewById<ImageView>(R.id.imgBarcode)

@@ -7,6 +7,7 @@ import android.os.HandlerThread
 import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -41,7 +42,16 @@ class BasketActivity : AppCompatActivity() {
         rcBasketList = findViewById<RecyclerView>(R.id.rcBasketList)
         val btnSwitch = findViewById<Switch>(R.id.btnSwitch)
         val tvPay = findViewById<TextView>(R.id.tvPay)
-
+        val imageButton = findViewById<ImageView>(R.id.imageButton)
+        val imageButton2 = findViewById<ImageView>(R.id.imageButton2)
+        imageButton.setOnClickListener {
+            val intent = Intent(this@BasketActivity, QRActivity::class.java)
+            startActivity(intent)
+        }
+         imageButton2.setOnClickListener {
+             val intent = Intent(this@BasketActivity, MainActivity::class.java)
+             startActivity(intent)
+         }
         queue  = Volley.newRequestQueue(this)
         var url = "http://211.223.106.67:8081/cart/Barcode.do"
 
