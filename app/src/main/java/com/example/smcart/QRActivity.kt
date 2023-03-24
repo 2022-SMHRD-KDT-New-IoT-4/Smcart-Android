@@ -40,6 +40,18 @@ class QRActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_qractivity)
 
+        // 시연용 시간 지나면 자동으로 넘어가게
+        Handler().postDelayed({
+            val intent = Intent(this@QRActivity,BasketActivity::class.java)
+            startActivity(intent)
+            finish()
+        },
+            4000)
+
+        ///
+
+
+
         val btnScan = findViewById<Button>(R.id.btnScan)
 
         // QR 코드 버튼 이벤트
@@ -82,7 +94,7 @@ class QRActivity : AppCompatActivity() {
             // 컨텐츠가 있으면
             else {
                 //토스트를 띄운다.
-                Toast.makeText(this, "연동이 완료되었습니다." + result.contents, Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "연동이 완료되었습니다." , Toast.LENGTH_LONG).show()
                 Log.d("TTT", "QR 코드 URL:${result.contents}")
 
                 //서버에 큐알코드 전송하기
@@ -111,6 +123,10 @@ class QRActivity : AppCompatActivity() {
 //                var row = response.toInt() // row는 서버에서 받아온 조회 결과값.
                 var result : String?
                 result = response // row는 서버에서 받아온 조회 결과값.
+
+
+
+
                 if (result != null){
                     Log.d("서버에서 받아온 값!",response)
                     // 서버로 넘긴 module_qr정보를 db에서 조회 후,
@@ -124,6 +140,7 @@ class QRActivity : AppCompatActivity() {
                     }else{
                         Toast.makeText(this,"다시 시도해 주세요.",Toast.LENGTH_SHORT).show()
                     }
+
 //                 0일 경우 연동 실패 토스트 띄우기
 
                 }else{

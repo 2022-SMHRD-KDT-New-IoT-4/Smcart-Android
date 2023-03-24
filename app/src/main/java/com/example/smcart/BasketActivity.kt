@@ -53,7 +53,7 @@ class BasketActivity : AppCompatActivity() {
              startActivity(intent)
          }
         queue  = Volley.newRequestQueue(this)
-        var url = "http://211.223.106.67:8081/cart/Barcode.do"
+        var url = "http://220.95.45.227:8081/cart/Barcode2.do"
 
 //        val t = Thread {
 //            Looper.prepare()
@@ -67,12 +67,13 @@ class BasketActivity : AppCompatActivity() {
 
         val data = ArrayList<BasketVO>()
 
+
         request = object : StringRequest(
             Method.POST, url,
             Response.Listener<String> { response ->
                 val jsonArray = JSONArray(response)
                 Log.d("결과", response.toString())
-                for(i in 0..jsonArray.length()) {
+                for(i in 0..jsonArray.length()-1) {
 //                    var cnt = 1
                     var cnt = jsonArray.getJSONObject(i).getInt( "prod_cnt")
 //                    var img = "R.drawable.carrot"
@@ -99,12 +100,11 @@ class BasketActivity : AppCompatActivity() {
         queue.add(request)
 
 
-
-//        data.add(BasketVO("세척당근 3개입/봉", "3,600","2",R.drawable.carrot))
-//        data.add(BasketVO("대파 1kg /단", "4,200","1",R.drawable.greenonion))
-//        data.add(BasketVO("목우촌 국내산 돼지 앞다리 1000g/팩", "10,900","1",R.drawable.pork))
-//        data.add(BasketVO("미니뿌셔 불고기맛 55g 5개입/봉", "3,800","4",R.drawable.snack))
-//        data.add(BasketVO("긴 상품명 어쩌고 저쩌고 두 줄일 때 더 길게 더 길게 짱길게1kg /단", "980","1",R.drawable.greenonion))
+        // val cnt : Int, val img : String, val price : Int, val name : String
+//        data.add(BasketVO(1,"R.drawable.carrot",3600,"세척당근 3개입/봉"))
+//        data.add(BasketVO(1,"R.drawable.greenonion",4200,"대파 1kg /단",))
+//        data.add(BasketVO(1,"R.drawable.pork", 10900,"목우촌 국내산 돼지 앞다리 1000g/팩"))
+//        data.add(BasketVO(1, "R.drawable.snack",3800,"미니뿌셔 불고기맛 55g 5개입/봉"))
         // please
         val adapter = BasketAdapter(applicationContext,data)
         rcBasketList.adapter = adapter

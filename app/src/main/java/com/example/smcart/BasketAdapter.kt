@@ -1,22 +1,16 @@
 package com.example.smcart
 
 import android.content.Context
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.widget.*
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.*
-import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
+import com.bumptech.glide.Glide
 import com.google.zxing.integration.android.IntentResult
-import org.json.JSONArray
-import org.json.JSONObject
 
 class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
     RecyclerView.Adapter<BasketAdapter.ViewHolder>(){
@@ -62,8 +56,8 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
 //                var cntp = requestSend(cnt.toString()).toString()
 //                Log.d("되니?",cntp)
 
-                //tvProdCnt.text = cnt.toString() // + 1 개 된 개수 출력
-                //tvProdPrice.text = (price * cnt).toString()
+                tvProdCnt.text = cnt.toString() // + 1 개 된 개수 출력
+                tvProdPrice.text = (price * cnt).toString()
 
             }
             imgMinus.setOnClickListener {
@@ -72,8 +66,8 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
                     val price = tvProdPrice.text.toString().toInt() / cnt // 원가
                     cnt -=1 // 추가된 개수
 //                    requestSend(cnt.toString())
-                    //tvProdCnt.text = cnt.toString() // + 1 개 된 개수 출력
-                    //tvProdPrice.text = (price * cnt).toString()
+                    tvProdCnt.text = cnt.toString() // + 1 개 된 개수 출력
+                    tvProdPrice.text = (price * cnt).toString()
 
                 }
             }
@@ -131,14 +125,25 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
         //.replace(",", "").toInt() * data[position].cnt.toInt()
 
         holder.tvProdPrice.text = price.toString()
-        val rsc = data[position].img.toString()
-        Log.d("rsc",rsc)
-//        holder.imgProd.setImageResource(rsc)
+
+
+        // 서버에서 받아온 String >> 이미지경로
+
+        val imageName = data[position].img.substring(data[position].img.lastIndexOf('.') + 1)
+        val resourceId = holder.imgProd.context.resources.getIdentifier(
+            imageName, "drawable", holder.imgProd.context.packageName
+        )
+
+        Glide.with(holder.itemView.context).load(resourceId).into(holder.imgProd)
+        holder.imgProd.setImageResource(resourceId)
+//        Log.d("resource= holder.itemView.context.resources.getIdentifier(imagePath, "drawable", holder.itemView.context.packageName)
+
         // 왜 안될까요?
         holder.imgPlus.setImageResource(R.drawable.icon_plus)
         holder.imgMinus.setImageResource(R.drawable.icon_minus)
         holder.btnHeart.setImageResource(R.drawable.heart_gray)
         holder.btnTrashcan.setImageResource(R.drawable.trash_gray)
+
 
 
     }
