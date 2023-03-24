@@ -7,6 +7,12 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.android.volley.AuthFailureError
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.VolleyError
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,21 +23,37 @@ class LoginActivity : AppCompatActivity() {
         val etLoginId = findViewById<EditText>(R.id.etLoginId)
         val etLoginPw = findViewById<EditText>(R.id.etLoginPw)
 
+        queue = Volley.newRequestQueue(applicationContext)
+
+        val url = "http://211.223.106.67:8081/cart/AndLogin.do"
         btnLogin.setOnClickListener {
-
-            var id = etLoginId.text.toString()
-            var pw = etLoginPw.text.toString()
-
-            // db에서 조회하는 로직으로 변경하기
-            if(id == "123" && pw == "123" ){
-                val intent = Intent(this@LoginActivity,MainActivity::class.java)
-                startActivity(intent)
-            }else{
-                Toast.makeText(this@LoginActivity,
-                    "로그인 정보가 일치하지 않습니다.",Toast.LENGTH_SHORT).show()
+            val stringRequest: StringRequest = object : StringRequest(
+                Request.Method.POST,
+                url,
+                Response.Listener { response: String ->
+                    Log.d("로그인결과값", response)
+                    if(response != "null"){
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                    }else{
+                        Toast.makeText(this,"다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+                    }
+                },
+                Response.ErrorListener { error: VolleyError ->
+                    Log.d(
+                        "안녕",
+                        "That didn't work!" + error.message
+                    )
+                }) {
+                @Throws(AuthFailureError::class)
+                override fun getParams(): Map<String, String>? {
+                    val params: MutableMap<String, String> = HashMap()
+                    params["user_id"] = etLoginId.text.toString()
+                    params["user_pw"] = etLoginPw.text.toString()
+                    return params
+                }
             }
-
-
+            queue.add(stringRequest)
         }
 
 

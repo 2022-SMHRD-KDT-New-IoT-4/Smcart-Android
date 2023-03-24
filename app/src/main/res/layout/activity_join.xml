@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="아이디"
+        android:text="계정 이메일"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -79,7 +79,7 @@
         android:layout_marginEnd="30dp"
         android:backgroundTint="#989898"
         android:ems="10"
-        android:hint="아이디를 작성해주세요"
+        android:hint="이메일을 작성해주세요"
         android:inputType="textPersonName"
         android:textColor="#000000"
         android:textColorHint="#979797"
@@ -126,7 +126,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etJoinPw" />
 
     <EditText
-        android:id="@+id/etJoinNickName"
+        android:id="@+id/etJoinNickname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -149,7 +149,7 @@
         android:text="전화번호"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/etJoinNickName" />
+        app:layout_constraintTop_toBottomOf="@+id/etJoinNickname" />
 
     <EditText
         android:id="@+id/etJoinPhone"
@@ -161,9 +161,9 @@
         android:hint="전화번호를 입력해주세요."
         android:inputType="textPersonName"
         android:textColorHint="#979797"
-        app:layout_constraintEnd_toEndOf="@+id/etJoinNickName"
+        app:layout_constraintEnd_toEndOf="@+id/etJoinNickname"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/etJoinNickName"
+        app:layout_constraintStart_toStartOf="@+id/etJoinNickname"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <TextView

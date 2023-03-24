@@ -55,15 +55,13 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
             btnProdCheck = view.findViewById(R.id.btnProdCheck)
             tvProdPrice = view.findViewById(R.id.tvProdPrice)
 
-
             imgPlus.setOnClickListener {
                 var cnt = tvProdCnt.text.toString().toInt()  // 원래 개수
                 val price = tvProdPrice.text.toString().toInt() / cnt // 원가
                 cnt +=1 // 추가된 개수
-                var cntp = requestSend(cnt.toString()).toString()
-                Log.d("되니?",cntp)
+//                var cntp = requestSend(cnt.toString()).toString()
+//                Log.d("되니?",cntp)
 
-    ///ㄴㅇㄹㅇㄴㅁㄹ
                 //tvProdCnt.text = cnt.toString() // + 1 개 된 개수 출력
                 //tvProdPrice.text = (price * cnt).toString()
 
@@ -73,7 +71,7 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
                     var cnt = tvProdCnt.text.toString().toInt()  // 원래 개수
                     val price = tvProdPrice.text.toString().toInt() / cnt // 원가
                     cnt -=1 // 추가된 개수
-                    requestSend(cnt.toString())
+//                    requestSend(cnt.toString())
                     //tvProdCnt.text = cnt.toString() // + 1 개 된 개수 출력
                     //tvProdPrice.text = (price * cnt).toString()
 
@@ -93,31 +91,31 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
 
     }
 
-    private fun requestSend(value:String) {
-        //queue = Volley.newRequestQueue(context)
+//    private fun requestSend(value:String) {
+//        //queue = Volley.newRequestQueue(context)
 
-        val url = "http://211.223.106.67:8081/cart/Basket.do"
-
-
-        val jsonArrayRequest = JsonArrayRequest(
-            Request.Method.POST, url, null,
-            Response.Listener<JSONArray> { response ->
-                Log.d("안녕", response.toString())
-                for (i in 0 until response.length()) {
-                    val jsonObject = response[i] as JSONObject
-                    val name = jsonObject.getString("name")
-                    val price = jsonObject.getString("price")
-                    val cnt = jsonObject.getString("cnt")
-                    val img = jsonObject.getString("img")
-                    Log.d("예호!", "$name, $price, $cnt, $img")
-                    }
-                },
-        Response.ErrorListener { error -> Log.d("예호ㅠ", "error......$error") }
-        )
-
-        queue = Volley.newRequestQueue(context)
-        queue.add(jsonArrayRequest)
-    }
+//        val url = "http://211.223.106.67:8081/cart/Basket.do"
+//
+//
+//        val jsonArrayRequest = JsonArrayRequest(
+//            Request.Method.POST, url, null,
+//            Response.Listener<JSONArray> { response ->
+//                Log.d("안녕", response.toString())
+//                for (i in 0 until response.length()) {
+//                    val jsonObject = response[i] as JSONObject
+//                    val name = jsonObject.getString("name")
+//                    val price = jsonObject.getString("price")
+//                    val cnt = jsonObject.getString("cnt")
+//                    val img = jsonObject.getString("img")
+//                    Log.d("예호!", "$name, $price, $cnt, $img")
+//                    }
+//                },
+//        Response.ErrorListener { error -> Log.d("예호ㅠ", "error......$error") }
+//        )
+//
+//        queue = Volley.newRequestQueue(context)
+//        queue.add(jsonArrayRequest)
+//    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasketAdapter.ViewHolder {
@@ -128,11 +126,15 @@ class BasketAdapter(var context : Context, var data : ArrayList<BasketVO>):
 
     override fun onBindViewHolder(holder: BasketAdapter.ViewHolder, position: Int) {
         holder.tvProdName.text = data[position].name
-        holder.tvProdCnt.text = data[position].cnt
+        holder.tvProdCnt.text = data[position].cnt.toString()
         val price =  data[position].price
         //.replace(",", "").toInt() * data[position].cnt.toInt()
+
         holder.tvProdPrice.text = price.toString()
-        // 왜 안될까요? holder.imgProd.setImageResource(data[position].img.toString())
+        val rsc = data[position].img.toString()
+        Log.d("rsc",rsc)
+//        holder.imgProd.setImageResource(rsc)
+        // 왜 안될까요?
         holder.imgPlus.setImageResource(R.drawable.icon_plus)
         holder.imgMinus.setImageResource(R.drawable.icon_minus)
         holder.btnHeart.setImageResource(R.drawable.heart_gray)

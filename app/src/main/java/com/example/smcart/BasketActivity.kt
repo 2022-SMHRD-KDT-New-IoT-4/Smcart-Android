@@ -1,59 +1,76 @@
 package com.example.smcart
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.HandlerThread
+import android.os.Looper
 import android.util.Log
-import android.widget.CompoundButton
+import android.view.View
 import android.widget.Switch
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.AuthFailureError
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
-import org.json.JSONObject
-import java.lang.reflect.InvocationTargetException
+
 
 // 장바구니 페이지
 class BasketActivity : AppCompatActivity() {
     private lateinit var queue: RequestQueue
     private lateinit var request : StringRequest
-    private lateinit var barcodenum : String
+//    private lateinit var barcodenum : String
+    private lateinit var rcBasketList : RecyclerView
 
-
+//    private val rvInterfaceInstance: CallbackInterface = object :CallbackInterface{
+//        override fun onClick(view: View) {
+//            val index : Int = rcBasketList.getChildAdapterPosition(view)
+//            Log.d("ind", index.toString())
+//        }
+//    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_basket)
 
-        barcodenum = "8801062883646"
+        //barcodenum = "8801062883646"
 
-        val rcBasketList = findViewById<RecyclerView>(R.id.rcBasketList)
+        rcBasketList = findViewById<RecyclerView>(R.id.rcBasketList)
         val btnSwitch = findViewById<Switch>(R.id.btnSwitch)
         val tvPay = findViewById<TextView>(R.id.tvPay)
 
-
         queue  = Volley.newRequestQueue(this)
-        var url = "http://211.223.106.67:8081/cart/Product.do"
+        var url = "http://211.223.106.67:8081/cart/Barcode.do"
 
+//        val t = Thread {
+//            Looper.prepare()
+//            val handler = Handler()
+//            Looper.loop()
+//        }
+//        t.start()
+        val t = HandlerThread("My Handler Thread")
+        t.start()
+        val handler = Handler(t.looper)
 
         val data = ArrayList<BasketVO>()
-        // 문제 1) 장바구니 테이블이 아닌 상품정보테이블에서 가져오는 중?
+
         request = object : StringRequest(
             Method.POST, url,
             Response.Listener<String> { response ->
-                Log.d("결과", response.toString())
                 val jsonArray = JSONArray(response)
+                Log.d("결과", response.toString())
                 for(i in 0..jsonArray.length()) {
-                    var name = jsonArray.getJSONObject(i).getString("prod_name")
-                    var price = jsonArray.getJSONObject(i).getString("prod_price")
-                    var cnt = "1"
+//                    var cnt = 1
+                    var cnt = jsonArray.getJSONObject(i).getInt( "prod_cnt")
+//                    var img = "R.drawable.carrot"
                     var img = jsonArray.getJSONObject(i).getString("prod_img")
-                    data.add(BasketVO(name, price,cnt , img.toInt())).toString()
+                    var price = jsonArray.getJSONObject(i).getInt("prod_price")
+//                    var price = 200
+                    var name = jsonArray.getJSONObject(i).getString("prod_name")
+                     data.add(BasketVO(cnt.toInt(), img,price.toInt(),name)).toString()
                     Log.d("data",data[i].toString())
                 }
 
